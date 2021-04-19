@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<style>
+body {
+  background-image: url('https://images.wallpaperscraft.com/image/black_dark_shadow_9663_1280x720.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+</style>
+
+<body>
+    <div class="container" align="center"><br/>
+        <h1 style="color:white">To-Do List Application</h1><br/>
+        <div class="jumbotron">
+            <h3>
+                <div>
+                    <table class="table">
+                        <tr>
+                            <p th:text="|${#strings.toUpperCase(username)}'s To-Do List|"></p>
+                        </tr>
+
+                        <tr>
+                            <th>Task</th>
+                            <th>Last Updated</th>
+                        </tr>
+                        <tr th:each="userTask : ${userTasks}">
+                            <td th:text="${userTask.task}"></td>
+                            <td th:text="${userTask.update_time}"></td>
+                            <td>
+                                <a th:href="@{/delete_task(task=${userTask.task})}" class="btn btn-danger">Delete</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <a th:href="@{/addTask}" class="btn btn-danger">Add Task</a>
+                        </tr><br/>
+                        <tr>
+                            <a th:href="@{/logout}" class="btn btn-danger">Logout</a>
+                        </tr><br/><br/>
+                    </table>
+                </div>
+            </h3>
+        </div>
+
+    </div>
+
+</body>
+</html>

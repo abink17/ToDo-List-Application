@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:form="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Task</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<style>
+body {
+  background-image: url('https://images.wallpaperscraft.com/image/black_dark_shadow_9663_1280x720.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+</style>
+
+<body>
+    <div class="container"align="center"><br/>
+        <h1 style="color:white">To-Do List Application</h1><br/>
+
+        <div class="jumbotron">
+            <h2>Add-task</h2><br/>
+
+            <form action="#" th:action="@{/userTask}" method="get">
+                <div>
+                    <label>Task:</label>
+                    <input type="text" th:name="task" minlength="3" maxlength="45"/>
+                </div>
+                <br/>
+                <div>
+                    <button type="submit" class="btn btn-danger">Add</button>
+                </div>
+                <br/>
+                <div>
+                    <button type="reset" class="btn btn-danger">Reset</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
